@@ -16,7 +16,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
-from xgboost import XGBRegressor
+#from xgboost import XGBRegressor
 from sklearn.linear_model import Ridge,Lasso
 
 from src.utils import save_object
@@ -48,8 +48,6 @@ class ModelTrainer:
             "K-Neighbors Regressor": KNeighborsRegressor(),
             "Decision Tree": DecisionTreeRegressor(),
             "Random Forest Regressor": RandomForestRegressor(),
-            "XGBRegressor": XGBRegressor(), 
-            "CatBoosting Regressor": CatBoostRegressor(verbose=False),
             "AdaBoost Regressor": AdaBoostRegressor(),
             'Gradient Boost Regressor':GradientBoostingRegressor()
             }
@@ -83,19 +81,6 @@ class ModelTrainer:
                 "max_depth": [None, 10],
                 "min_samples_split": [2, 5]
             },
-
-            "XGBRegressor": {
-                "n_estimators": [100],
-                "learning_rate": [0.05, 0.1],
-                "max_depth": [3, 5]
-            },
-
-            "CatBoosting Regressor": {
-                "iterations": [100],
-                "learning_rate": [0.05, 0.1],
-                "depth": [6, 8]
-            },
-
             "AdaBoost Regressor": {
                 "n_estimators": [50, 100],
                 "learning_rate": [0.05, 0.1]
